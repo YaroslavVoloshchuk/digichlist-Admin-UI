@@ -1,4 +1,4 @@
 export const environment = {
     production: false,
-    BASEURL: 'http://35.198.94.109:5000/api/',
+    BASEURL: 'http://digichlist-elb-481719826.us-east-1.elb.amazonaws.com:5000/api/',
 };
