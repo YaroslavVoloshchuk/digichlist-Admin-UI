@@ -4,7 +4,7 @@ RUN mkdir -p /app
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY package*.json .htaccess ./
 
 RUN npm install
 
@@ -12,10 +12,16 @@ COPY . ./
 
 RUN npm run build
 
-FROM nginx:1.16.0-alpine
+FROM httpd:alpine
 
-COPY --from=build /app/build /usr/share/nginx/html
+COPY --from=build /app/build /usr/local/apache2/htdocs/
 
-EXPOSE 80
+COPY ./.htaccess /usr/local/apache2/htdocs/
 
-CMD ["nginx", "-g", "daemon off;"]
+RUN sed -i '/LoadModule rewrite_module/s/^#//g' /usr/local/apache2/conf/httpd.conf && \
+    sed -i 's#AllowOverride [Nn]one#AllowOverride All#' /usr/local/apache2/conf/httpd.conf
+
+EXPOSE 80  
+
+EXPOSE 443
+
