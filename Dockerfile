@@ -1,4 +1,4 @@
-FROM node:14 as build
+FROM node:14.16-alpine as build
 
 RUN mkdir -p /app
 
