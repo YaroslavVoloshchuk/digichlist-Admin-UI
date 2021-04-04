@@ -4,8 +4,10 @@ services:
 
   sample-prod:
     container_name: sample-prod
+    restart: always
     build:
       context: .
       dockerfile: Dockerfile
     ports:
       - '80:80'
+
