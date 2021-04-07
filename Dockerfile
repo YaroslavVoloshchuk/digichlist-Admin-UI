@@ -25,5 +25,5 @@ RUN echo "ServerName localhost" >> /usr/local/apache2/conf/httpd.conf
 
 EXPOSE 80  
 
-EXPOSE 443
+
 
