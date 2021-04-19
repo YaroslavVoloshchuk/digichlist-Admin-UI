@@ -6,10 +6,6 @@ RUN mkdir -p /app
 
 WORKDIR /app
 
-#COPY package*.json .htaccess ./
-
-#RUN npm install
-#
 RUN apk add --update bash nodejs npm
 
 COPY package*.json .htaccess ./
@@ -17,7 +13,6 @@ COPY package*.json .htaccess ./
 RUN npm set progress=false && \
     npm config set depth 0 && \
     npm install --only=production
-#
 
 COPY . ./
 
