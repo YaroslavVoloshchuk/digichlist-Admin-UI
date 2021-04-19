@@ -1,12 +1,23 @@
-FROM node:14.16-alpine as build
+FROM alpine:3.10
+
+MAINTAINER Yaroslav Voloshchuk <bamiks@gmail.com>
 
 RUN mkdir -p /app
 
 WORKDIR /app
 
+#COPY package*.json .htaccess ./
+
+#RUN npm install
+#
+RUN apk add --update bash nodejs npm
+
 COPY package*.json .htaccess ./
 
-RUN npm install
+RUN npm set progress=false && \
+    npm config set depth 0 && \
+    npm install --only=production
+#
 
 COPY . ./
 
