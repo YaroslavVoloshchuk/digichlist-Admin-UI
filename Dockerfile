@@ -1,6 +1,6 @@
 FROM alpine:3.10 as build
 
-MAINTAINER Yaroslav Voloshchuk <bamiks@gmail.com>
+#MAINTAINER Yaroslav Voloshchuk <bamiks@gmail.com>
 
 RUN mkdir -p /app
 
