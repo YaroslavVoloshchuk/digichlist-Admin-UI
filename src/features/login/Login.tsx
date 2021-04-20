@@ -67,7 +67,7 @@ const Login = ({ setAuthInfo }): JSX.Element => {
             <CssBaseline />
             <div className={classes.paper}>
                 <Typography component='h1' variant='h5'>
-                    Ввід
+                    Авторизація
                 </Typography>
                 <Formik
                     initialValues={initialValues}
